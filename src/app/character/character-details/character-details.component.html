@@ -1,0 +1,44 @@
+<div *ngIf="character">
+    <h2>Detalhes do Personagem</h2>
+    <p><strong>Nome:</strong> {{ character.name }}</p>
+    <p><strong>Descrição:</strong> {{ character.description }}</p>
+    <p><strong>Vida:</strong> {{ character.health }} / {{ character.maxHealth }}</p>
+    <p><strong>Mana:</strong> {{ character.mana }} / {{ character.maxMana }}</p>
+    <p><strong>Defesa:</strong> {{ character.defence }}</p>
+    <p><strong>Nível:</strong> {{ character.level }}</p>
+    <p><strong>Tibar:</strong> {{ character.tibar }}</p>
+    <p><strong>Pontos de Atributo:</strong> {{ character.attributePoints }}</p>
+    <p><strong>Em Jogo:</strong> {{ character.inGame ? 'Sim' : 'Não' }}</p>
+    <p><strong>Força:</strong> {{ character.strength }}</p>
+    <p><strong>Destreza:</strong> {{ character.dexterity }}</p>
+    <p><strong>Constituição:</strong> {{ character.constitution }}</p>
+    <p><strong>Inteligência:</strong> {{ character.intelligence }}</p>
+    <p><strong>Sabedoria:</strong> {{ character.wisdom }}</p>
+    <p><strong>Carisma:</strong> {{ character.charisma }}</p>
+    <p><strong>ID do Usuário:</strong> {{ character.user.name }}</p>
+    <p><strong>Raça:</strong> {{ character.race.name }}</p>
+    <p><strong>Classe:</strong> {{ character.chClass.name }}</p>
+    <p><strong>Origem:</strong> {{ character.origin.name}}</p>
+    <p><strong>Deus:</strong> {{ character.god.name }}</p>
+    <p><strong>Habilidades:</strong> @for(habilidade of character.skill; track habilidade.id){
+        {{ habilidade.name }}{{ !$last ? ', ' : '' }}
+        }</p>
+    <p><strong>Poderes:</strong> @for(poder of character.power;track poder.id){
+        {{ poder.name}}{{!$last?',': ' '}}
+        }</p>
+    <p><strong>Arma:</strong> {{ character.weapon.name}}</p>
+    <p><strong>Armadura:</strong> {{ character.armor.name }}</p>
+    <p><strong>Escudo:</strong> {{ character.shild.name }}</p>
+    <p><strong>Magias:</strong> @for(magia of character.magic; track magia.id){
+        {{magia.name}}{{!$last ? ',': ' '}}
+        }</p>
+    <p><strong>Proficiências:</strong> @for(proficiencia of character.proficiency; track proficiencia.id){
+        {{proficiencia.name}}{{!$last?',':' '}}
+        }</p>
+    <p><strong>Aventura:</strong> {{ character.adventure.name }}</p>
+</div>
+@if(!character){
+<div>
+    <p>Carregando...</p>
+</div>
+}

@@ -1,0 +1,177 @@
+<form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" formControlName="name" required>
+    </div>
+
+    <div>
+        <label for="description">Descrição:</label>
+        <textarea id="description" formControlName="description"></textarea>
+    </div>
+
+    <div>
+        <label for="health">Vida:</label>
+        <input type="number" id="health" formControlName="health" required>
+    </div>
+
+    <div>
+        <label for="maxHealth">Vida Máxima:</label>
+        <input type="number" id="maxHealth" formControlName="maxHealth" required>
+    </div>
+
+    <div>
+        <label for="mana">Mana:</label>
+        <input type="number" id="mana" formControlName="mana" required>
+    </div>
+
+    <div>
+        <label for="maxMana">Mana Máxima:</label>
+        <input type="number" id="maxMana" formControlName="maxMana" required>
+    </div>
+
+    <div>
+        <label for="defence">Defesa:</label>
+        <input type="number" id="defence" formControlName="defence">
+    </div>
+
+    <div>
+        <label for="level">Nível:</label>
+        <input type="number" id="level" formControlName="level" required>
+    </div>
+
+    <div>
+        <label for="tibar">Tibar:</label>
+        <input type="number" id="tibar" formControlName="tibar">
+    </div>
+
+    <div>
+        <label for="attributePoints">Pontos de Atributo:</label>
+        <input type="number" id="attributePoints" formControlName="attributePoints">
+    </div>
+
+    <div>
+        <label for="inGame">Em Jogo:</label>
+        <input type="checkbox" id="inGame" formControlName="inGame">
+    </div>
+
+    <div>
+        <label for="strength">Força:</label>
+        <input type="number" id="strength" formControlName="strength">
+    </div>
+
+    <div>
+        <label for="dexterity">Destreza:</label>
+        <input type="number" id="dexterity" formControlName="dexterity">
+    </div>
+
+    <div>
+        <label for="constitution">Constituição:</label>
+        <input type="number" id="constitution" formControlName="constitution">
+    </div>
+
+    <div>
+        <label for="intelligence">Inteligência:</label>
+        <input type="number" id="intelligence" formControlName="intelligence">
+    </div>
+
+    <div>
+        <label for="wisdom">Sabedoria:</label>
+        <input type="number" id="wisdom" formControlName="wisdom">
+    </div>
+
+    <div>
+        <label for="charisma">Carisma:</label>
+        <input type="number" id="charisma" formControlName="charisma">
+    </div>
+
+    <div>
+        <label for="userId">ID do Usuário:</label>
+        <input type="number" id="userId" formControlName="userId">
+    </div>
+
+    <div>
+        <label for="raceId">Raça:</label>
+        <select id="raceId" formControlName="raceId">
+            <option *ngFor="let race of raceIds" [value]="race.id">{{ race.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="chClassId">Classe:</label>
+        <select id="chClassId" formControlName="chClassId">
+            <option *ngFor="let chClass of chClassIds" [value]="chClass.id">{{ chClass.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="originId">Origem:</label>
+        <select id="originId" formControlName="originId">
+            <option *ngFor="let origin of originIds" [value]="origin.id">{{ origin.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="godId">Deus:</label>
+        <select id="godId" formControlName="godId">
+            <option *ngFor="let god of godIds" [value]="god.id">{{ god.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="skillIds">Habilidades:</label>
+        <select multiple id="skillIds" formControlName="skillIds">
+            <option *ngFor="let skill of skillIds" [value]="skill.id">{{ skill.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="powerIds">Poderes:</label>
+        <select multiple id="powerIds" formControlName="powerIds">
+            <option *ngFor="let power of powerIds" [value]="power.id">{{ power.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="weaponId">Arma:</label>
+        <select id="weaponId" formControlName="weaponId">
+            <option *ngFor="let weapon of weaponIds" [value]="weapon.id">{{ weapon.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="armorId">Armadura:</label>
+        <select id="armorId" formControlName="armorId">
+            <option *ngFor="let armor of armorIds" [value]="armor.id">{{ armor.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="shildId">Escudo:</label>
+        <select id="shildId" formControlName="shildId">
+            <option *ngFor="let shild of shildIds" [value]="shild.id">{{ shild.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="magicIds">Magias:</label>
+        <select multiple id="magicIds" formControlName="magicIds">
+            <option *ngFor="let magic of magicIds" [value]="magic.id">{{ magic.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="proficiencyIds">Proficiências:</label>
+        <select multiple id="proficiencyIds" formControlName="proficiencyIds">
+            <option *ngFor="let proficiency of proficiencyIds" [value]="proficiency.id">{{ proficiency.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="adventureId">Aventura:</label>
+        <select id="adventureId" formControlName="adventureId">
+            <option *ngFor="let adventure of adventureIds" [value]="adventure.id">{{ adventure.name }}</option>
+        </select>
+    </div>
+
+    <button type="submit" [disabled]="!characterForm.valid">Criar Personagem</button>
+</form>
