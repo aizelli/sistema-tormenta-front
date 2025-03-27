@@ -19,19 +19,19 @@ export class CharacterDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id){
-      this.characterService.getCharacterById(+id).subscribe(
-        response => {
+    if (id) {
+      this.characterService.getCharacterById(+id).subscribe({
+        next: (response) => {
           this.character = response;
         },
-        error => {
+        error: (error) => {
           console.log("Erro ao buscar personagem", error);
         }
-      );
-    }else{
+      });
+    } else {
       console.log("ID personagem não encontrado");
     }
-    
+
   }
 
 }

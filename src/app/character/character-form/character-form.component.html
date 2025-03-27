@@ -92,84 +92,123 @@
     <div>
         <label for="raceId">Raça:</label>
         <select id="raceId" formControlName="raceId">
-            <option *ngFor="let race of raceIds" [value]="race.id">{{ race.name }}</option>
+            @for (race of raceIds; track race.id) {
+            <option [value]="race.id">{{ race.name }}</option>
+            } @empty {
+            <option disabled>Nenhuma Raça disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="chClassId">Classe:</label>
         <select id="chClassId" formControlName="chClassId">
-            <option *ngFor="let chClass of chClassIds" [value]="chClass.id">{{ chClass.name }}</option>
+            @for (chClass of chClassIds; track chClass.id){
+            <option [value]="chClass.id">{{ chClass.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Classe disponível</option>
+            }
+
         </select>
     </div>
 
     <div>
         <label for="originId">Origem:</label>
         <select id="originId" formControlName="originId">
-            <option *ngFor="let origin of originIds" [value]="origin.id">{{ origin.name }}</option>
+            @for (origin of originIds; track origin.id) {
+            <option [value]="origin.id">{{ origin.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Origem disponível</option>
+            }
+
         </select>
     </div>
 
     <div>
         <label for="godId">Deus:</label>
         <select id="godId" formControlName="godId">
-            <option *ngFor="let god of godIds" [value]="god.id">{{ god.name }}</option>
+            @for (god of godIds; track god.id) {
+            <option [value]="god.id">{{ god.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Deus disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="skillIds">Habilidades:</label>
         <select multiple id="skillIds" formControlName="skillIds">
-            <option *ngFor="let skill of skillIds" [value]="skill.id">{{ skill.name }}</option>
+            @for (skill of skillIds; track skill.id) {
+            <option [value]="skill.id">{{ skill.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Habilidades disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="powerIds">Poderes:</label>
         <select multiple id="powerIds" formControlName="powerIds">
-            <option *ngFor="let power of powerIds" [value]="power.id">{{ power.name }}</option>
+            @for (power of powerIds; track power.id) {
+            <option [value]="power.id">{{ power.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Poderes disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="weaponId">Arma:</label>
         <select id="weaponId" formControlName="weaponId">
-            <option *ngFor="let weapon of weaponIds" [value]="weapon.id">{{ weapon.name }}</option>
+            @for (weapon of weaponIds; track weapon.id) {
+            <option [value]="weapon.id">{{ weapon.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Arma disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="armorId">Armadura:</label>
         <select id="armorId" formControlName="armorId">
-            <option *ngFor="let armor of armorIds" [value]="armor.id">{{ armor.name }}</option>
+            @for (armor of armorIds; track armor.id) {
+            <option [value]="armor.id">{{ armor.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Armadura disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="shildId">Escudo:</label>
         <select id="shildId" formControlName="shildId">
-            <option *ngFor="let shild of shildIds" [value]="shild.id">{{ shild.name }}</option>
+            @for (shild of shildIds; track shild.id) {
+            <option [value]="shild.id">{{ shild.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Escudo disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="magicIds">Magias:</label>
         <select multiple id="magicIds" formControlName="magicIds">
-            <option *ngFor="let magic of magicIds" [value]="magic.id">{{ magic.name }}</option>
+            @for (magic of magicIds; track magic.id) {
+            <option [value]="magic.id">{{ magic.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Magias disponível</option>
+            }
         </select>
     </div>
 
     <div>
         <label for="proficiencyIds">Proficiências:</label>
         <select multiple id="proficiencyIds" formControlName="proficiencyIds">
-            <option *ngFor="let proficiency of proficiencyIds" [value]="proficiency.id">{{ proficiency.name }}</option>
-        </select>
-    </div>
-
-    <div>
-        <label for="adventureId">Aventura:</label>
-        <select id="adventureId" formControlName="adventureId">
-            <option *ngFor="let adventure of adventureIds" [value]="adventure.id">{{ adventure.name }}</option>
+            @for (proficiency of proficiencyIds; track proficiency.id) {
+            <option [value]="proficiency.id">{{ proficiency.name }}</option>
+            }@empty {
+            <option disabled>Nenhuma Proficiências disponível</option>
+            }
         </select>
     </div>
 
