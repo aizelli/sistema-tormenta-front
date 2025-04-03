@@ -1,198 +1,181 @@
-<form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="name">Nome:</label>
-        <input type="text" id="name" formControlName="name" required>
+<form [formGroup]="characterForm" (ngSubmit)="onSubmit()" class="character-form">
+    <h2>Criar Personagem</h2>
+    <div class="row">
+        <div class="col-md-2 form-group">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" formControlName="name" required class="form-control">
+        </div>
+        <div class="col-md-1 form-group">
+            <label for="level">Nível:</label>
+            <input type="number" id="level" formControlName="level" required class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="raceId">Raça:</label>
+            <select id="raceId" formControlName="raceId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (race of raceIds; track race.id) {
+                <option [value]="race.id">{{ race.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Raça disponível</option>
+                }
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="chClassId">Classe:</label>
+            <select id="chClassId" formControlName="chClassId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (chClass of chClassIds; track chClass.id) {
+                <option [value]="chClass.id">{{ chClass.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Classe disponível</option>
+                }
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="originId">Origem:</label>
+            <select id="originId" formControlName="originId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (origin of originIds; track origin.id) {
+                <option [value]="origin.id">{{ origin.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Origem disponível</option>
+                }
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="godId">Deus:</label>
+            <select id="godId" formControlName="godId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (god of godIds; track god.id) {
+                <option [value]="god.id">{{ god.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Deus disponível</option>
+                }
+            </select>
+        </div>
     </div>
-
-    <div>
-        <label for="description">Descrição:</label>
-        <textarea id="description" formControlName="description"></textarea>
+    <div class="row">
+        <div class="form-group">
+            <label for="description">Descrição:</label>
+            <textarea id="description" formControlName="description" class="form-control" rows="4"></textarea>
+        </div>
     </div>
-
-    <div>
-        <label for="health">Vida:</label>
-        <input type="number" id="health" formControlName="health" required>
+    <div class="row">
+        <div class="col form-group">
+            <label for="health">Vida:</label>
+            <input type="number" id="health" formControlName="health" required class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="maxHealth">Vida Máxima:</label>
+            <input type="number" id="maxHealth" formControlName="maxHealth" required class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="mana">Mana:</label>
+            <input type="number" id="mana" formControlName="mana" required class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="maxMana">Mana Máxima:</label>
+            <input type="number" id="maxMana" formControlName="maxMana" required class="form-control">
+        </div>
     </div>
-
-    <div>
-        <label for="maxHealth">Vida Máxima:</label>
-        <input type="number" id="maxHealth" formControlName="maxHealth" required>
+    <div class="row">
+        <div class="col-md-2 form-group">
+            <label for="attributePoints">Pontos de Atributo:</label>
+            <input type="number" id="attributePoints" formControlName="attributePoints" class="form-control">
+        </div>
     </div>
-
-    <div>
-        <label for="mana">Mana:</label>
-        <input type="number" id="mana" formControlName="mana" required>
+    <div class="row">
+        <div class="col form-group">
+            <label for="strength">Força:</label>
+            <input type="number" id="strength" formControlName="strength" class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="dexterity">Destreza:</label>
+            <input type="number" id="dexterity" formControlName="dexterity" class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="constitution">Constituição:</label>
+            <input type="number" id="constitution" formControlName="constitution" class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="intelligence">Inteligência:</label>
+            <input type="number" id="intelligence" formControlName="intelligence" class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="wisdom">Sabedoria:</label>
+            <input type="number" id="wisdom" formControlName="wisdom" class="form-control">
+        </div>
+        <div class="col form-group">
+            <label for="charisma">Carisma:</label>
+            <input type="number" id="charisma" formControlName="charisma" class="form-control">
+        </div>
     </div>
-
-    <div>
-        <label for="maxMana">Mana Máxima:</label>
-        <input type="number" id="maxMana" formControlName="maxMana" required>
+    <div class="row">
+        <div class="col form-group">
+            <label for="weaponId">Arma:</label>
+            <select id="weaponId" formControlName="weaponId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (weapon of weaponIds; track weapon.id) {
+                <option [value]="weapon.id">{{ weapon.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Arma disponível</option>
+                }
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="armorId">Armadura:</label>
+            <select id="armorId" formControlName="armorId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (armor of armorIds; track armor.id) {
+                <option [value]="armor.id">{{ armor.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Armadura disponível</option>
+                }
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="shildId">Escudo:</label>
+            <select id="shildId" formControlName="shildId" class="form-control">
+                <option [selected]="true">Selecione</option>
+                @for (shild of shildIds; track shild.id) {
+                <option [value]="shild.id">{{ shild.name }}</option>
+                } @empty {
+                <option disabled>Nenhuma Escudo disponível</option>
+                }
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="defence">Defesa:</label>
+            <input type="number" id="defence" formControlName="defence" class="form-control">
+        </div>
     </div>
-
-    <div>
-        <label for="defence">Defesa:</label>
-        <input type="number" id="defence" formControlName="defence">
-    </div>
-
-    <div>
-        <label for="level">Nível:</label>
-        <input type="number" id="level" formControlName="level" required>
-    </div>
-
-    <div>
+    <div class="form-group">
         <label for="tibar">Tibar:</label>
-        <input type="number" id="tibar" formControlName="tibar">
+        <input type="number" id="tibar" formControlName="tibar" class="form-control">
     </div>
-
-    <div>
-        <label for="attributePoints">Pontos de Atributo:</label>
-        <input type="number" id="attributePoints" formControlName="attributePoints">
-    </div>
-
-    <div>
-        <label for="inGame">Em Jogo:</label>
-        <input type="checkbox" id="inGame" formControlName="inGame">
-    </div>
-
-    <div>
-        <label for="strength">Força:</label>
-        <input type="number" id="strength" formControlName="strength">
-    </div>
-
-    <div>
-        <label for="dexterity">Destreza:</label>
-        <input type="number" id="dexterity" formControlName="dexterity">
-    </div>
-
-    <div>
-        <label for="constitution">Constituição:</label>
-        <input type="number" id="constitution" formControlName="constitution">
-    </div>
-
-    <div>
-        <label for="intelligence">Inteligência:</label>
-        <input type="number" id="intelligence" formControlName="intelligence">
-    </div>
-
-    <div>
-        <label for="wisdom">Sabedoria:</label>
-        <input type="number" id="wisdom" formControlName="wisdom">
-    </div>
-
-    <div>
-        <label for="charisma">Carisma:</label>
-        <input type="number" id="charisma" formControlName="charisma">
-    </div>
-
-    <div>
-        <label for="userId">ID do Usuário:</label>
-        <input type="number" id="userId" formControlName="userId">
-    </div>
-
-    <div>
-        <label for="raceId">Raça:</label>
-        <select id="raceId" formControlName="raceId">
-            @for (race of raceIds; track race.id) {
-            <option [value]="race.id">{{ race.name }}</option>
-            } @empty {
-            <option disabled>Nenhuma Raça disponível</option>
-            }
-        </select>
-    </div>
-
-    <div>
-        <label for="chClassId">Classe:</label>
-        <select id="chClassId" formControlName="chClassId">
-            @for (chClass of chClassIds; track chClass.id){
-            <option [value]="chClass.id">{{ chClass.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Classe disponível</option>
-            }
-
-        </select>
-    </div>
-
-    <div>
-        <label for="originId">Origem:</label>
-        <select id="originId" formControlName="originId">
-            @for (origin of originIds; track origin.id) {
-            <option [value]="origin.id">{{ origin.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Origem disponível</option>
-            }
-
-        </select>
-    </div>
-
-    <div>
-        <label for="godId">Deus:</label>
-        <select id="godId" formControlName="godId">
-            @for (god of godIds; track god.id) {
-            <option [value]="god.id">{{ god.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Deus disponível</option>
-            }
-        </select>
-    </div>
-
-    <div>
-        <label for="skillIds">Habilidades:</label>
-        <select multiple id="skillIds" formControlName="skillIds">
+    <div class="form-group">
+        <label for="skillIds">Pericias:</label>
+        <select multiple id="skillIds" formControlName="skillIds" class="form-control">
             @for (skill of skillIds; track skill.id) {
             <option [value]="skill.id">{{ skill.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Habilidades disponível</option>
+            } @empty {
+            <option disabled>Nenhuma Pericias disponível</option>
             }
         </select>
     </div>
-
-    <div>
+    <div class="form-group">
         <label for="powerIds">Poderes:</label>
-        <select multiple id="powerIds" formControlName="powerIds">
+        <select multiple id="powerIds" formControlName="powerIds" class="form-control">
             @for (power of powerIds; track power.id) {
             <option [value]="power.id">{{ power.name }}</option>
-            }@empty {
+            } @empty {
             <option disabled>Nenhuma Poderes disponível</option>
             }
         </select>
     </div>
-
-    <div>
-        <label for="weaponId">Arma:</label>
-        <select id="weaponId" formControlName="weaponId">
-            @for (weapon of weaponIds; track weapon.id) {
-            <option [value]="weapon.id">{{ weapon.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Arma disponível</option>
-            }
-        </select>
-    </div>
-
-    <div>
-        <label for="armorId">Armadura:</label>
-        <select id="armorId" formControlName="armorId">
-            @for (armor of armorIds; track armor.id) {
-            <option [value]="armor.id">{{ armor.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Armadura disponível</option>
-            }
-        </select>
-    </div>
-
-    <div>
-        <label for="shildId">Escudo:</label>
-        <select id="shildId" formControlName="shildId">
-            @for (shild of shildIds; track shild.id) {
-            <option [value]="shild.id">{{ shild.name }}</option>
-            }@empty {
-            <option disabled>Nenhuma Escudo disponível</option>
-            }
-        </select>
-    </div>
-
-    <div>
+    <div class="form-group">
         <label for="magicIds">Magias:</label>
-        <select multiple id="magicIds" formControlName="magicIds">
+        <select multiple id="magicIds" formControlName="magicIds" class="form-control">
             @for (magic of magicIds; track magic.id) {
             <option [value]="magic.id">{{ magic.name }}</option>
             }@empty {
@@ -200,10 +183,9 @@
             }
         </select>
     </div>
-
-    <div>
+    <div class="form-group">
         <label for="proficiencyIds">Proficiências:</label>
-        <select multiple id="proficiencyIds" formControlName="proficiencyIds">
+        <select multiple id="proficiencyIds" formControlName="proficiencyIds" class="form-control">
             @for (proficiency of proficiencyIds; track proficiency.id) {
             <option [value]="proficiency.id">{{ proficiency.name }}</option>
             }@empty {
@@ -211,6 +193,5 @@
             }
         </select>
     </div>
-
-    <button type="submit" [disabled]="!characterForm.valid">Criar Personagem</button>
+    <button type="submit" [disabled]="!characterForm.valid" class="btn btn-primary">Criar Personagem</button>
 </form>

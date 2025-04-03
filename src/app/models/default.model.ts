@@ -7,7 +7,7 @@ export interface Ability {
     type: string
 }
 
-export interface attibutes {
+export interface Attibutes {
     atributo: string,
     valor: number
 }

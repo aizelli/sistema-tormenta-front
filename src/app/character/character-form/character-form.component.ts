@@ -38,34 +38,57 @@ export class CharacterFormComponent implements OnInit {
     this.characterForm = this.fb.group({
       name: ['', Validators.required],
       description: [''],
-      health: [1, Validators.min(1)],
-      maxHealth: [1, Validators.min(1)],
-      mana: [1, Validators.min(1)],
-      maxMana: [1, Validators.min(1)],
+      health: [0, Validators.min(1)],
+      maxHealth: [0, Validators.min(1)],
+      mana: [0, Validators.min(1)],
+      maxMana: [0, Validators.min(1)],
       defence: [0],
-      level: [1, Validators.min(1)],
+      level: [0, Validators.min(1)],
       tibar: [0],
       attributePoints: [0],
       inGame: [false],
-      strength: [0],
-      dexterity: [0],
-      constitution: [0],
-      intelligence: [0],
-      wisdom: [0],
-      charisma: [0],
+      strength: [0, Validators.min(1)],
+      dexterity: [0, Validators.min(1)],
+      constitution: [0, Validators.min(1)],
+      intelligence: [0, Validators.min(1)],
+      wisdom: [0, Validators.min(1)],
+      charisma: [0, Validators.min(1)],
       userId: [1], // Substitua com o ID do usuário real
-      raceId: [1],
-      chClassId: [1],
-      originId: [1],
-      godId: [1],
-      skillIds: [[]],
+      raceId: ['Selecione', Validators.required],
+      chClassId: ['Selecione', Validators.required],
+      originId: ['Selecione', Validators.required],
+      godId: ['Selecione', Validators.required],
+      skillIds: [[], Validators.required],
       powerIds: [[]],
-      weaponId: [1],
-      armorId: [1],
-      shildId: [1],
+      weaponId: ['Selecione'],
+      armorId: ['Selecione'],
+      shildId: ['Selecione'],
       magicIds: [[]],
-      proficiencyIds: [[]]
+      proficiencyIds: [[]],
+      adventureId: null
     })
+  }
+
+  onSubmit(): void {
+    if (this.characterForm.valid) {
+      const character = { ...this.characterForm.value }
+      character.userId = Number(character.userId)
+      character.raceId = Number(character.raceId)
+      character.chClassId = Number(character.chClassId)
+      character.originId = Number(character.originId)
+      character.weaponId = Number(character.weaponId)
+      character.armorId = Number(character.armorId)
+      character.shildId = Number(character.shildId)
+      character.godId = Number(character.godId)
+      this.characterService.createCharacter(character).subscribe({
+        next: (response) => {
+          console.log("Personagem craido com sucesso", response);
+        },
+        error: (error) => {
+          console.log("Erro ao cadastrar", error);
+        }
+      });
+    }
   }
 
   setAllSelects(): void {
@@ -168,18 +191,4 @@ export class CharacterFormComponent implements OnInit {
       }
     });
   }
-  onSubmit(): void {
-    if (this.characterForm.valid) {
-      this.characterService.createCharacter(this.characterForm.value).subscribe({
-        next: (response) => {
-          console.log("Personagem craido com sucesso", response);
-        },
-        error: (error) => {
-          console.log("Erro ao cadastrar", error);
-          console.log("formulario", this.characterForm.value);
-        }
-      });
-    }
-  }
-
 }

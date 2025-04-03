@@ -1,0 +1,152 @@
+/* character-form.component.css */
+
+.character-form {
+    max-width: 1080px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .character-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .character-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .character-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .character-form input[type="text"],
+  .character-form input[type="number"],
+  .character-form select,
+  .character-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .character-form input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .character-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .character-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .character-form .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Estilos Bootstrap */
+  
+  .character-form .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .character-form .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .character-form .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .character-form .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .character-form .btn-primary:focus,
+  .character-form .btn-primary.active,
+  .character-form .btn-primary:active {
+    color: #fff;
+    background-color: #0062cc;
+    border-color: #005cbf;
+  }
+  
+  .character-form .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  }
+  
+  .character-form .form-check {
+    margin-bottom: 15px;
+  }
+  
+  .character-form .form-check-label {
+    font-weight: normal;
+  }
+  
+  .character-form .form-check-input {
+    margin-top: 0.3rem;
+  }
+  
+  .character-form select[multiple] {
+    height: 150px; /* Ajuste a altura conforme necessário */
+  }
+  
+  /* Estilos para agrupar campos */
+  .character-form div {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para selects */
+  .character-form select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .character-form select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
